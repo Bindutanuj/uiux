@@ -1,0 +1,57 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Welcome!</title>
+<meta charset = "utf-8" />
+<script type = "text/javascript"  >
+
+function chkPasswords() { 
+ var init = document.getElementById("initial");
+ var sec = document.getElementById("second");
+ if (init.value == "") {
+ alert("You did not enter a password \n" +
+ "Please enter one now");
+ return false;
+ }
+if (init.value != sec.value) {
+ alert("The two passwords you entered are not the same \n" +
+ "Please re-enter both now");
+ return false;
+ } else
+ return true;
+}
+
+
+ </script>
+</head>
+
+<body style="background-color:white; text-align : center;">
+<h1 style="font-family:verdana;"></h1>
+<h1 style="background-color:red;border:2px solid DodgerBlue;">Login page</h1>
+<h1 style="font-size:300%;"></h1>
+<div class="container">
+<form id = "myForm" action = "">
+<p style="background-color:grey; font-size:200%">
+<label for="fname;">Enter username:</label>
+<input type="text" id="name" ><br><br>
+
+<label for="fname">Enter password:</label>
+<input type="password" id = "initial" size = "10"><br><br>
+
+<label for="fname">Re-enter password:</label>
+<input type="password" id = "second" size = "10"><br><br>
+
+<input type = "reset" name = "reset" />
+ <input type = "submit" name = "submit" />
+</p>
+</form>
+</div>
+
+<script type = "text/javascript">
+document.getElementById("second").onblur = chkPasswords; 
+document.getElementById("myForm").onsubmit = chkPasswords;
+ </script>
+</body>
+
+</html>
