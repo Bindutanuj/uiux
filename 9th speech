@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>speech synthesis example</title>
+	<style> 
+		html { 
+	  	background: url(404.jpg) no-repeat center fixed; 
+	  	background-size: cover;
+		}
+		h1 {
+  		text-shadow: 2px 2px 5px red;
+  		color : black;
+		}
+		p {
+		text-shadow: 0 0 3px black;
+		color : black;
+		}
+		ul {
+		text-shadow: 0 0 3px #FF0000;
+		color : black;
+		}
+		button {
+		  border-radius: 12px;
+		  background-color: #04AA6D;
+		  color: white;
+		  padding: 20px;
+		  text-align: center;
+		  font-size: 16px;
+		  margin: 4px 2px;
+		}
+		body { 
+		  color: white; 
+		}
+	</style>
+</head>
+<body>
+	<h1>Intractive Voice Example</h1>
+	<div class -="error-container">
+	<h1> Oops! somthing went wrong</h1>
+	<p> We're sorry , but it seems there was an error while processing your request,</p>
+	<p> please try the following: </p>
+	<ul>
+	<li> check your internet connection .</li>
+	<li><a href= "/" > Return to the homepage</a></li>
+	<li> contact our <a href =" /contact"> support team </a> for assistance.</li>
+	</ul>
+	</div>
+	<button onclick="speakText()"> click here to hear </button>
+	<script>
+	function speakText() {
+	var message = new SpeechSynthesisUtterance() ;
+	message.text ="hello , this is an example of changing voice tone in HTML.";
+	// set voice attributes (pitch and rate)
+	messag.pitch=-100;//adjust pitch (default is 1)
+	messag.rate=-0.8;//adjust rate (default is 1)
+	
+	// use default voice or specify a particular voice
+	// message.voice = speechSynthesis.getVoices() [0];
+	//example:use the first available voice
+	
+	// speak the text
+	window.speechSynthesis.speak(message);
+	}
+	</script>
+	</body>
+	</html>
