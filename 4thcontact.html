@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>contact form</title>
+	<style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: sans-serif;
+            background: #f3f3f3;
+            flex-direction: column;
+            margin:0;
+            }
+
+        .main {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 0 20px black;
+            padding: 10px 20px;
+            width: 500px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #4CAF50;
+        }
+
+        label {
+            display: block;
+            width: 100%;
+           margin-bottom: 10px;
+            text-align: left;
+            color: #555;
+            font-weight: bold;
+        }
+ input {
+            display: block;
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px ;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+
+       
+        button {
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            background-color: #4CAF50;
+            width: 80%;
+            font-size: 16px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+    </style>
+</head>
+
+<body>
+	<div class="main">
+		<h1> Contact Form</h1>
+		
+		<form id="myForm" onsubmit="return validateForm()">
+
+			<label for="first">Name:</label>
+			<input type="text"
+				id="name"
+				name="name"
+				placeholder="Enter your name" required>
+
+			<label for="email">Email:</label>
+			<input type="email"
+                id = "email"
+				name="email"
+				placeholder="abcd@gmail.com" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message"
+                name="message"
+                rows="4"
+                placeholder="type anything" required></textarea>
+            
+            <div 
+                id="nameError" 
+                class="form-error">
+            </div>
+            <div 
+                id="emailError" 
+                class="form-error">
+            </div>
+            <div
+                 id="messageError" 
+                class="form-error">
+            </div>
+            <div 
+                id="successMessage" 
+                class="form-success">
+            </div>
+
+			<button type="submit"  class="form-button">
+					Submit
+			</button>
+            
+
+		</form>
+	</div>
+
+    <script>
+        function validateForm() {
+            // Reset error messages
+            document.getElementById("nameError").textContent = "";
+            document.getElementById("emailError").textContent = "";
+            document.getElementById("messageError").textContent = "";
+            document.getElementById("successMessage").textContent = "";
+
+            // Get form values
+            var name = document.getElementById("name").value.trim();
+            var email = document.getElementById("email").value.trim();
+            var message = document.getElementById("message").value.trim();
+
+            // Basic validation
+            if (name === "") {
+                document.getElementById("nameError").textContent = "Name is required";
+                return false;
+            }
+
+            if (email === "") {
+                document.getElementById("emailError").textContent = "Email is required";
+                return false;
+            }
+
+            if (!validateEmail(email)) {
+                document.getElementById("emailError").textContent = "Invalid email format";
+                return false;
+            }
+
+            if (message === "") {
+                document.getElementById("messageError").textContent = "Message is required";
+                return false;
+            }
+
+            // Display success message
+            document.getElementById("successMessage").textContent = "Form submitted successfully!";
+            return true;
+        }
+
+        function validateEmail(email) {
+            // Basic email validation regex
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+    </script>
+</body>
+
+</html>

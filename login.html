@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>Registration</title>
+	<style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: sans-serif;
+            background: #f3f3f3;
+            flex-direction: column;
+            margin:0;
+            }
+
+        .main {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 0 20px black;
+            padding: 10px 20px;
+            width: 500px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #4CAF50;
+        }
+
+        label {
+            display: block;
+            width: 100%;
+           margin-bottom: 10px;
+            text-align: left;
+            color: #555;
+            font-weight: bold;
+        }
+ input {
+            display: block;
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px ;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+
+       
+        button {
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            background-color: #4CAF50;
+            width: 80%;
+            font-size: 16px;
+        }
+
+
+
+    </style>
+    <script type = "text/javascript"  >
+
+        function chkPasswords()
+            { 
+             var init = document.getElementById("initial");
+             var sec = document.getElementById("second");
+
+             if (init.value == "") {
+             alert("You did not enter a password \n" +
+             "Please enter one now");
+             return false;
+             }
+
+            if (init.value != sec.value) {
+             alert("The two passwords you entered are not the same \n" +
+             "Please re-enter both now");
+             return false;
+             } 
+            else
+            return true;
+            }
+            
+            
+     </script>
+</head>
+
+<body>
+	<div class="main">
+		<h1>Login Form</h1>
+		<h3>Enter your login credentials</h3>
+		<form id="myForm" action="">
+
+			<label for="first">Username:</label>
+			<input type="text"
+				id="first"
+				name="first"
+				placeholder="Enter your Username" required>
+
+			<label for="password">Password:</label>
+			<input type="password"
+                id = "initial" 
+                size = "10"
+				name="password"
+				placeholder="Enter your Password" required>
+            
+            <label for="password">Re-enter Password:</label>
+            <input type="password"
+                id="second"
+                size = "10"
+                name="password"
+                placeholder="Re-enter your Password" required>
+             
+             
+                <button type = "reset"> 
+                    Reset
+                </button>
+              
+			
+				<button type="submit">
+					Submit
+				</button>
+
+		</form>
+		<p>Not registered? 
+			<a href="/login.html"
+			style="text-decoration: none;">
+				Create an account
+			</a>
+		</p>
+	</div>
+
+    <script 
+        type = "text/javascript">
+        document.getElementById("second").onblur = chkPasswords; 
+        document.getElementById("myForm").onsubmit = chkPasswords;
+     </script>
+</body>
+
+</html>
